@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["counter"])) {
+    $_SESSION["counter"] = 0;
+}
+if (!isset($_SESSION["score"])) {
+    $_SESSION["score"] = 0;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,7 +17,8 @@
     <title>QCM Système Solaire</title>
 </head>
 <body>
-    <?php 
+    <?php
+
     
     require __DIR__ . "/page-assets/header.php";
 
@@ -22,3 +34,7 @@
 
 
 <?php 
+
+if($_SESSION["counter"]==4) {
+    session_destroy();
+}
