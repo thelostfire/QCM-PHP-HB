@@ -4,6 +4,7 @@
 
     <?php 
     
+    require_once __DIR__ ."/functions.php";
     $scan = scandir(__DIR__."/../quizz-assets");
     foreach ($scan as $file) {
         if ($file != "."&& $file != "..") {
