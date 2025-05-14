@@ -4,17 +4,16 @@
 /**
  * Summary of welcomePlayer
  * 
- * fonction chargée d'afficher un formulaire pour entrer le nom du joueur
- * @return void
+ * fonction chargée d'afficher le début du quizz où on appuie sur un bon gros bouton pour commencer après avoir entré son nom
+ * @return void pas de return
  */
 function welcomePlayer() {
-    $name = "";
     ?> 
     <h2>Bienvenue</h2>
     <form method="post">
         <label for="nameSelect">Entrez votre nom</label>
-        <input type="text" name="choice" >
-        <button>Sub-mite</button>
+        <input type="text" name="start" >
+        <button>Commencer</button>
     </form>
     <?php
 }
@@ -40,6 +39,42 @@ function questionDisplay(int $tabValue, array $tabBloup) {
             ?> </ul><button>Validay</button></form><?php
 
 }
+
+/**
+ * Summary of quizzEnd
+ * Fonction qui s'occupe d'afficher la fin du quizz, avec le score, un petit message selon le score, et
+ * la possibilité de recommencer le quizz en cliquant sur un bouton
+ * @param string $name Nom du joueur / de la joueuse
+ * @param int $score le score du quizz
+ * @return void on retourne rien
+ */
+function quizzEnd(string $name, int $score) {
+    ?>
+    <h2>Vous avez terminé ce quizz !</h2>
+    <h3>Votre score est de <?=$score?>/10</h3>
+    <?php 
+        if ($score == 10) {
+            echo "Félicitations !";
+        }
+        elseif ($score > 6) {
+            echo "Bravo !";
+        }
+        elseif ($score > 3) {
+            echo "Acceptable";
+        }
+        elseif ($score > 0) {
+            echo "Retravailler tout ça";
+        }
+        else echo "WTF";
+    ?>
+    <form method='post'>
+        <button name='destroy'>END</button>
+    </form>
+
+    <?php
+}
+
+
 /**
  * Summary of scandirButBetter
  * 

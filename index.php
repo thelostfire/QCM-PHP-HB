@@ -7,6 +7,11 @@ if (!isset($_SESSION["counter"])) {
 if (!isset($_SESSION["score"])) {
     $_SESSION["score"] = 0;
 }
+
+if (!isset($_SESSION["playerName"])) {
+    $_SESSION["playerName"] = "";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +40,3 @@ if (!isset($_SESSION["score"])) {
 
 <?php 
 
-if($_SESSION["counter"]==4) {
-    session_destroy();
-}

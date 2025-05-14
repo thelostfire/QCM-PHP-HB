@@ -1,0 +1,6 @@
+[
+    {"name":"Saint-Pétersbourg", "value":false},
+    {"name":"Toronto", "value":false},
+    {"name":"Auckland", "value":false},
+    {"name":"Canberra", "value":true}
+]

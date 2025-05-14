@@ -1,3 +1,3 @@
 <h3>
-    En quelle année a-t-on marché sur la Lune ?
+    Quel est le premier homme à avoir marché sur la lune ?
 </h3>
