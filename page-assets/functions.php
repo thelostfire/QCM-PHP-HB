@@ -7,13 +7,13 @@
  * fonction chargée d'afficher le début du quizz où on appuie sur un bon gros bouton pour commencer après avoir entré son nom
  * @return void pas de return
  */
-function welcomePlayer() {
+function quizzBegin() {
     ?> 
     <h2>Bienvenue</h2>
-    <form method="post" class="m-auto">
-        <label class ="d-block" for="nameSelect">Entrez votre nom</label>
-        <input class="d-block" type="text" name="start" >
-        <button class="btn btn-warning">Commencer</button>
+    <form method="post" class="w-50 m-auto">
+        <label class ="d-block mb-3" for="nameSelect">Entrez votre nom</label>
+        <input class="d-block mb-3" type="text" name="start" >
+        <button class="btn btn-warning ">Commencer</button>
     </form>
     <?php
 }
@@ -28,7 +28,7 @@ function welcomePlayer() {
  * @param array $tabBloup tableau dans lequel on va chercher les questions/réponses
  * @return void
  */
-function questionDisplay(int $tabValue, array $tabBloup) {
+function quizzDisplay(int $tabValue, array $tabBloup) {
     ?> <form method="post" class="w-50 m-auto "> <?php
             echo file_get_contents(__DIR__."/../quizz-assets/".$tabBloup[$tabValue]."/question.php");
             $tabAff = json_decode(file_get_contents(__DIR__."/../quizz-assets/".$tabBloup[$tabValue]."/answers.json"), true);
@@ -36,7 +36,7 @@ function questionDisplay(int $tabValue, array $tabBloup) {
             foreach ($tabAff as $tab) {
                 echo"<li><input type='radio' name='choice' value='".$tab["value"]."'>".$tab["name"]."</input></li>";
             }
-            ?> </ul><button>Validay</button></form><?php
+            ?> </ul><button class="btn next">Suivant</button></form><?php
 
 }
 
@@ -49,27 +49,30 @@ function questionDisplay(int $tabValue, array $tabBloup) {
  * @return void on retourne rien
  */
 function quizzEnd(string $name, int $score) {
-    ?>
+    ?><div class="container-fluid container-quizz-end">
     <h2>Vous avez terminé ce quizz, <?=$name?> !</h2>
     <h3>Votre score est de <?=$score?>/10</h3>
     <?php 
         if ($score == 10) {
-            echo "Félicitations !";
+            echo "<p class='perfect'>Félicitations ! C'est un sans faute, vous êtes prêt pour Polytechnique ! Ou plus ! Le ciel est votre limite !</p>";
         }
         elseif ($score > 6) {
-            echo "Bravo !";
+            echo "<p class='good'>Bravo ! C'est un score honorable, vous y étiez presque ! Malheuresement l'histoire ne se souvient
+            que de ceux qui ont gagné, jamais de ceux qui ont 'presque' réussi.</p>";
         }
         elseif ($score > 3) {
-            echo "Acceptable";
+            echo "<p class='decent'>Un résultat à retravailler. Peut-être pourriez-vous prendre inspiration sur un forum ?</p>";
         }
         elseif ($score > 0) {
-            echo "Retravailler tout ça";
+            echo "<p class='bad'>Ma foi, ça manque de sérieux tout ça. Il va vraiment falloir revoir les fondamentaux,
+            je vous enverrai un lien vers l'achat de mon essai en 8 volumes sur la réussite d'un QCM.</p>";
         }
-        else echo "WTF";
+        else echo "<p class='verybad'>Alors. C'est pas fou. C'est pas fou du tout. Mais voyons le bon côté des choses, vous ne pouvez pas faire pire !</p>";
     ?>
-    <form method='post'>
-        <button name='destroy'>END</button>
+    <form method='post' class="w-25 m-auto">
+        <button name='destroy' class="btn end">Terminer</button>
     </form>
+    </div>
 
     <?php
 }

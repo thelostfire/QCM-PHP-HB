@@ -7,10 +7,6 @@ ul {
     text-align: left;
 }
 
-header {
-    height: 15vh;
-}
-
 nav {
     svg {
         color: darkred;
@@ -18,12 +14,18 @@ nav {
 }
 
 main  {
-    height: 60vh;
+    height: 70vh;
     color: white;
-    background-image: url("/images/gold-Grey-Background.jpg");
+    background-image: url("/images/glitter.jpg");
+    background-size: cover;
 
+    
+}
+
+header, main {
+    
     form {
-        background-color: #565e64;
+        background-color: #7a858e;
         padding: 2rem 4rem;
         border-radius: 10px;
         border: 3px solid darkred;
@@ -33,7 +35,7 @@ main  {
         li {
             padding: 6px;
             margin: 6px;
-            background-color: rgb(178, 107, 14);
+            background-color: rgb(141, 96, 20);
             border: 3px solid darkred;
             border-radius: 5px;
             input {
@@ -45,12 +47,55 @@ main  {
     input {
         margin: auto;
     }
+
+    .next {
+        background-color: goldenrod;
+    }
+    .next:hover {
+        background-color: gold;
+        color: black;
+    }
+    .end {
+        background-color: goldenrod;
+    }
+    .end:hover {
+        background-color: gold;
+        color: black;
+    }
+
+    .perfect {
+        color: darkgreen;
+    }
+    .good {
+        color: rgb(6, 212, 6);
+    }
+    .decent {
+        color: rgb(205, 205, 0);
+    }
+    .bad {
+        color: red;
+    }
+    .verybad {
+        color: purple;
+    }
+
+    .container-quizz-end {
+        background-color: rgb(209, 209, 209);
+        padding: 2rem 4rem;
+        border-radius: 5px;
+        color: black;
+        border: 3px solid darkred;
+        p {
+            text-shadow: 1px 1px 3px black;
+            padding: 4px;
+        }
+    }
 }
 
 footer {
     height: 25vh;
     svg {
-        margin: 10px;
+        margin: 15px;
         color: white;
     }
 }

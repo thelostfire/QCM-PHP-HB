@@ -1,5 +1,5 @@
 <main>
-    <div class="container-fluid">
+    <div class="container-fluid py-5">
 
     <?php 
     
@@ -29,18 +29,14 @@
     }
 
     if ($_SESSION["counter"] == 0) {
-        welcomePlayer();
+        quizzBegin();
     }
     elseif ($_SESSION["counter"] == count($_SESSION["scan"]) + 1) {
         quizzEnd($_SESSION["playerName"], $_SESSION["score"]);
     }
     else {
-       questionDisplay($_SESSION["counter"]-1, $_SESSION["scan"]);
+       quizzDisplay($_SESSION["counter"]-1, $_SESSION["scan"]);
     }
-
-    echo $_SESSION["counter"];
-    echo $_SESSION["score"];
-    echo $_SESSION["playerName"];
 
     
 
