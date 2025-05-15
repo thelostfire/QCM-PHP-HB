@@ -10,10 +10,10 @@
 function welcomePlayer() {
     ?> 
     <h2>Bienvenue</h2>
-    <form method="post">
-        <label for="nameSelect">Entrez votre nom</label>
-        <input type="text" name="start" >
-        <button>Commencer</button>
+    <form method="post" class="m-auto">
+        <label class ="d-block" for="nameSelect">Entrez votre nom</label>
+        <input class="d-block" type="text" name="start" >
+        <button class="btn btn-warning">Commencer</button>
     </form>
     <?php
 }
@@ -29,7 +29,7 @@ function welcomePlayer() {
  * @return void
  */
 function questionDisplay(int $tabValue, array $tabBloup) {
-    ?> <form method="post"> <?php
+    ?> <form method="post" class="w-50 m-auto "> <?php
             echo file_get_contents(__DIR__."/../quizz-assets/".$tabBloup[$tabValue]."/question.php");
             $tabAff = json_decode(file_get_contents(__DIR__."/../quizz-assets/".$tabBloup[$tabValue]."/answers.json"), true);
             echo "<ul>";
@@ -50,7 +50,7 @@ function questionDisplay(int $tabValue, array $tabBloup) {
  */
 function quizzEnd(string $name, int $score) {
     ?>
-    <h2>Vous avez terminé ce quizz !</h2>
+    <h2>Vous avez terminé ce quizz, <?=$name?> !</h2>
     <h3>Votre score est de <?=$score?>/10</h3>
     <?php 
         if ($score == 10) {

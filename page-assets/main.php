@@ -1,16 +1,24 @@
 <main>
+    <div class="container-fluid">
 
     <?php 
     
     require_once __DIR__ ."/functions.php";
     $scan = scandirButBetter(__DIR__."/../quizz-assets");
-    echo count($scan);
-
+    shuffle($scan);
+    if (!isset($_SESSION["scan"])) {
+        
+        $_SESSION["scan"] = $scan;
+    }
 
     if (isset($_POST["destroy"])) {
         session_destroy();
         header("Location: /");
         exit();
+    }
+
+    if (isset($_POST["start"])) {
+        $_SESSION["playerName"] = $_POST["start"];
     }
     
     if (isset($_POST["choice"]) || !empty($_POST["start"])) {
@@ -23,19 +31,21 @@
     if ($_SESSION["counter"] == 0) {
         welcomePlayer();
     }
-    elseif ($_SESSION["counter"] == count($scan) + 1) {
-        quizzEnd("Chose", $_SESSION["score"]);
+    elseif ($_SESSION["counter"] == count($_SESSION["scan"]) + 1) {
+        quizzEnd($_SESSION["playerName"], $_SESSION["score"]);
     }
     else {
-       questionDisplay($_SESSION["counter"]-1, $scan);
+       questionDisplay($_SESSION["counter"]-1, $_SESSION["scan"]);
     }
 
     echo $_SESSION["counter"];
     echo $_SESSION["score"];
+    echo $_SESSION["playerName"];
 
     
 
     ?>
     
+    </div>
 
 </main>

@@ -1,0 +1,56 @@
+body {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    text-align: left;
+}
+
+header {
+    height: 15vh;
+}
+
+nav {
+    svg {
+        color: darkred;
+    }
+}
+
+main  {
+    height: 60vh;
+    color: white;
+    background-image: url("/images/gold-Grey-Background.jpg");
+
+    form {
+        background-color: #565e64;
+        padding: 2rem 4rem;
+        border-radius: 10px;
+        border: 3px solid darkred;
+        h3 {
+            margin-bottom: 2rem;
+        }
+        li {
+            padding: 6px;
+            margin: 6px;
+            background-color: rgb(178, 107, 14);
+            border: 3px solid darkred;
+            border-radius: 5px;
+            input {
+                margin-right: 4px;
+            }
+        }
+    }
+
+    input {
+        margin: auto;
+    }
+}
+
+footer {
+    height: 25vh;
+    svg {
+        margin: 10px;
+        color: white;
+    }
+}
